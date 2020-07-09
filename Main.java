@@ -60,7 +60,9 @@ class BudgetManager{
                             "5) Back");
                     int category = sc.nextInt();
                     garbage = sc.nextLine();
-                    System.out.println();
+                    if(category!=5){
+                        System.out.println();
+                    }
                     if(category==5){
                         break;
                     }
@@ -92,17 +94,24 @@ class BudgetManager{
                                 "6) Back");
                         category = sc.nextInt();
                         sc.nextLine();
-                        System.out.println();
+                        if(category!=6){
+                            System.out.println();
+                        }
                         if(category==1){ // food
                             if(ListOfPurchases[category-1].size()==0){
                                 System.out.println("Purchase list is empty");
                             }
                             else{
                                 System.out.println("Food:");
+                                double sum = 0;
                                 for (int j = 0; j < ListOfPurchases[category-1].size(); j++) {
-                                    System.out.println(ListOfPurchases[category-1].get(j));
+                                    String temp = ListOfPurchases[category-1].get(j);
+                                    System.out.println(temp);
+                                    String[] arr = temp.split("\\$");
+                                    double price = Double.parseDouble(arr[1]);
+                                    sum += price;
                                 }
-                                System.out.println();
+                                System.out.println("Total sum: $" + sum + "\n");
                             }
                         }
                         else if(category==2){ // clothes
@@ -111,10 +120,15 @@ class BudgetManager{
                             }
                             else{
                                 System.out.println("Clothes:");
+                                double sum = 0;
                                 for (int j = 0; j < ListOfPurchases[category-1].size(); j++) {
-                                    System.out.println(ListOfPurchases[category-1].get(j));
+                                    String temp = ListOfPurchases[category-1].get(j);
+                                    System.out.println(temp);
+                                    String[] arr = temp.split("\\$");
+                                    double price = Double.parseDouble(arr[1]);
+                                    sum += price;
                                 }
-                                System.out.println();
+                                System.out.println("Total sum: $" + sum + "\n");
                             }
                         }
                         else if(category==3){ // entertainment
@@ -123,10 +137,15 @@ class BudgetManager{
                             }
                             else{
                                 System.out.println("Entertainment:");
+                                double sum = 0;
                                 for (int j = 0; j < ListOfPurchases[category-1].size(); j++) {
-                                    System.out.println(ListOfPurchases[category-1].get(j));
+                                    String temp = ListOfPurchases[category-1].get(j);
+                                    System.out.println(temp);
+                                    String[] arr = temp.split("\\$");
+                                    double price = Double.parseDouble(arr[1]);
+                                    sum += price;
                                 }
-                                System.out.println();
+                                System.out.println("Total sum: $" + sum + "\n");
                             }
                         }
                         else if(category==4){ // other
@@ -135,24 +154,34 @@ class BudgetManager{
                             }
                             else{
                                 System.out.println("Other:");
+                                double sum = 0;
                                 for (int j = 0; j < ListOfPurchases[category-1].size(); j++) {
-                                    System.out.println(ListOfPurchases[category-1].get(j));
+                                    String temp = ListOfPurchases[category-1].get(j);
+                                    System.out.println(temp);
+                                    String[] arr = temp.split("\\$");
+                                    double price = Double.parseDouble(arr[1]);
+                                    sum += price;
                                 }
-                                System.out.println();
+                                System.out.println("Total sum: $" + sum + "\n");
                             }
                         }
                         else if(category==5){ // all
-                            if(ListOfPurchases[category-1].size()==0){
+                            if(NumOfPurchase==0){
                                 System.out.println("Purchase list is empty");
                             }
                             else{
                                 System.out.println("All:");
-                                for(int i=0;i<ListOfPurchases.length;i++) {
+                                double sum = 0;
+                                for(int i=0;i<ListOfPurchases.length;i++){
                                     for (int j = 0; j < ListOfPurchases[i].size(); j++) {
-                                        System.out.println(ListOfPurchases[i].get(j));
+                                        String temp = ListOfPurchases[i].get(j);
+                                        System.out.println(temp);
+                                        String[] arr = temp.split("\\$");
+                                        double price = Double.parseDouble(arr[1]);
+                                        sum += price;
                                     }
                                 }
-                                System.out.println();
+                                System.out.println("Total sum: $" + sum + "\n");
                             }
                         }
                     }
